@@ -346,11 +346,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         ),
                       ],
                     ),
-                    //popularFilter(),
-                    const Divider(
-                      height: 1,
+                    SizedBox(
+                      height: 10,
                     ),
-                    deliveryDateUI(),
+                    //popularFilter(),
                     const Divider(
                       height: 1,
                     ),
@@ -682,70 +681,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
   }
 
   DateTime selectedDate = DateTime.now();
-
-  Widget deliveryDateUI() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
-          child: Text(
-            'Delivery Date',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
-              fontWeight: FontWeight.normal,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
-          child: InkWell(
-            onTap: () async {
-              final DateTime? picked = await showDatePicker(
-                context: context,
-                initialDate: selectedDate,
-                firstDate: DateTime.now(),
-                lastDate: DateTime(2101),
-              );
-              if (picked != null && picked != selectedDate) {
-                setState(() {
-                  selectedDate = picked;
-                });
-              }
-            },
-            child: Container(
-              width: double.infinity,
-              height: 56,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(4.0),
-                border: Border.all(color: Colors.grey.withOpacity(0.6)),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "${selectedDate.toLocal()}".split(' ')[0],
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                    const Icon(Icons.calendar_today, color: Colors.grey)
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(height: 8),
-      ],
-    );
-  }
 
   Widget popularFilter() {
     return Column(

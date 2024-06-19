@@ -39,7 +39,7 @@ class _SavedScreenState extends State<SavedScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favourites'),
+        title: const Text('Favourites'),
         backgroundColor: primaryColor,
       ),
       body: SafeArea(
@@ -51,20 +51,20 @@ class _SavedScreenState extends State<SavedScreen>
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError) {
-                  return Center(
+                  return const Center(
                     child: Text('Something went wrong',
                         style: TextStyle(color: Colors.black)),
                   );
                 }
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
 
                 if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                  return Center(
+                  return const Center(
                     child: Text('No favourites added yet.',
                         style: TextStyle(color: Colors.black)),
                   );
@@ -160,7 +160,8 @@ class _SavedScreenState extends State<SavedScreen>
                                                           data['type'],
                                                           textAlign:
                                                               TextAlign.left,
-                                                          style: TextStyle(
+                                                          style:
+                                                              const TextStyle(
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             fontSize: 22,
@@ -208,12 +209,14 @@ class _SavedScreenState extends State<SavedScreen>
                                                         horizontal: 16),
                                                     child: Row(
                                                       children: [
-                                                        Icon(Icons.bed,
+                                                        const Icon(Icons.bed,
                                                             color: Colors.blue),
                                                         Text(
                                                             ' ${data['num_of_beds']} Beds'),
-                                                        SizedBox(width: 10),
-                                                        Icon(Icons.bathtub,
+                                                        const SizedBox(
+                                                            width: 10),
+                                                        const Icon(
+                                                            Icons.bathtub,
                                                             color: Colors.blue),
                                                         Text(
                                                             ' ${data['num_of_baths']} Baths'),
@@ -234,7 +237,7 @@ class _SavedScreenState extends State<SavedScreen>
                                                         Row(
                                                           children: <Widget>[
                                                             IconButton(
-                                                              icon: Icon(
+                                                              icon: const Icon(
                                                                   Icons.phone),
                                                               onPressed: () {
                                                                 launch(
@@ -242,7 +245,7 @@ class _SavedScreenState extends State<SavedScreen>
                                                               },
                                                             ),
                                                             IconButton(
-                                                              icon: Icon(
+                                                              icon: const Icon(
                                                                   Icons.email),
                                                               onPressed:
                                                                   () async {
@@ -290,7 +293,7 @@ class _SavedScreenState extends State<SavedScreen>
                                                               },
                                                             ),
                                                             IconButton(
-                                                              icon: Icon(
+                                                              icon: const Icon(
                                                                   LineAwesomeIcons
                                                                       .what_s_app),
                                                               onPressed:
@@ -304,7 +307,8 @@ class _SavedScreenState extends State<SavedScreen>
                                                         // Cost Display
                                                         Text(
                                                           '\$${data['price']}',
-                                                          style: TextStyle(
+                                                          style:
+                                                              const TextStyle(
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             fontSize: 19,
